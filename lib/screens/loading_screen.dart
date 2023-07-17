@@ -7,6 +7,8 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
+
+  String location = '';
   Future<Position> getLocation() async {
     bool serviceEnabled;
     LocationPermission permission;
@@ -42,19 +44,24 @@ class _LoadingScreenState extends State<LoadingScreen> {
     // When we reach here, permissions are granted and we can
     // continue accessing the position of the device.
     Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.low);
+
+    setState(() {
+      location = position.toString();
+    });
     return position;
   }
+
+  @override
+  void initState() {
+    super.initState();
+    getLocation();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: MaterialButton(
-          onPressed: () async {
-            Position algo = await getLocation();
-            print(algo);
-          },
-          child: Text('Get Location'),
-        ),
+        child: Text(location),
       ),
     );
   }
