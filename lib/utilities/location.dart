@@ -4,7 +4,7 @@ class Location {
   double latitude = 0;
   double longitude = 0;
 
-  getCurrentLocation() async {
+  void getCurrentLocation() async {
 
     bool serviceEnabled;
     LocationPermission permission;
