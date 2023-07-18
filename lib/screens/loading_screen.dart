@@ -21,7 +21,11 @@ class _LoadingScreenState extends State<LoadingScreen> {
     try{
       final uri = Uri.parse('https://samples.openweathermap.org/data/2.5/weather?lat=100&lon=100&appid=bef2c0dc64e4e34e1fe7362293461a13');
       Response response = await get(uri);
-      print(response);
+      if (response.statusCode == 200) {
+        print(response.body);
+      } else {
+        print(response.statusCode);
+      }
     }catch(ex) {
       print(ex);
     }
