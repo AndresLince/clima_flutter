@@ -14,6 +14,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   String location = '';
   double temperature = 0;
   String cityName = '';
+  int conditionNumber = 0;
   getLocation() async {
     Location location = Location();
     await location.getCurrentLocation();
@@ -29,8 +30,10 @@ class _LoadingScreenState extends State<LoadingScreen> {
         String data = response.body;
         temperature = jsonDecode(data)['main']['temp'];
         cityName = jsonDecode(data)['name'];
+        conditionNumber = jsonDecode(data)['weather'][0]['id'];
         print(temperature);
         print(cityName);
+        print(conditionNumber);
       } else {
         print(response.statusCode);
       }
