@@ -14,19 +14,21 @@ class LoadingScreen extends StatefulWidget {
 class _LoadingScreenState extends State<LoadingScreen> {
 
   String location = '';
+  double latitude = 0;
+  double longitude = 0;
   double temperature = 0;
   String cityName = '';
   int conditionNumber = 0;
   getLocation() async {
     Location location = Location();
     await location.getCurrentLocation();
-    print(location.latitude);
-    print(location.longitude);
+    latitude = location.latitude;
+    longitude = location.longitude;
   }
 
   getData() async {
     try{
-      final uri = Uri.parse('https://samples.openweathermap.org/data/2.5/weather?lat=100&lon=100&appid=$apiKey');
+      final uri = Uri.parse('https://samples.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey');
       http.Response response = await http.get(uri);
       if (response.statusCode == 200) {
         String data = response.body;
