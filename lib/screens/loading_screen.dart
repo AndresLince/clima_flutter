@@ -12,10 +12,7 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
-  String location = '';
-  double temperature = 0;
-  String cityName = '';
-  int conditionNumber = 0;
+
   getLocation() async {
     Location location = Location();
     await location.getCurrentLocation();
