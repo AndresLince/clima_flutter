@@ -1,5 +1,4 @@
-import 'dart:convert';
-
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:clima_flutter/screens/location_screen.dart';
 import 'package:clima_flutter/services/networking.dart';
 import 'package:flutter/material.dart';
@@ -41,9 +40,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
-        child: Text(location),
+        child: SpinKitDoubleBounce(
+          color: Colors.white,
+          size: 100,
+        ),
       ),
     );
   }
