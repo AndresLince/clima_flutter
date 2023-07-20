@@ -10,7 +10,6 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
-
   int temperature = 0;
   int condition = 0;
   String cityName = '';
@@ -27,8 +26,8 @@ class _LocationScreenState extends State<LocationScreen> {
     temperature = temp.toInt();
     condition = weatherData['weather'][0]['id'];
     cityName = weatherData['name'];
-    print(temperature);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
