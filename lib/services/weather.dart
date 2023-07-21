@@ -5,7 +5,6 @@ const apiKey = 'bef2c0dc64e4e34e1fe7362293461a13';
 const openWeatherMapUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
 class WeatherModel {
-
   Future<dynamic> getWeatherData() async {
     Location location = Location();
     await location.getCurrentLocation();
@@ -14,6 +13,7 @@ class WeatherModel {
     NetworkHelper networkHelper = NetworkHelper(url: uri);
     return await networkHelper.getData();
   }
+
   String getWeatherIcon(int condition) {
     if (condition < 300) {
       return '🌩';
