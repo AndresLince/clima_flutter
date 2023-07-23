@@ -37,7 +37,10 @@ class _CityScreenState extends State<CityScreen> {
                   style: TextStyle(
                     color: Colors.black
                   ),
-                  decoration: ktextFieldInputDecoration
+                  decoration: ktextFieldInputDecoration,
+                  onChanged: (value) {
+                    print(value);
+                  },
                 ),
               ),
               TextButton(
